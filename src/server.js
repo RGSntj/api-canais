@@ -5,7 +5,7 @@ import cors from 'cors'
 
 const servidor = express()
 servidor.use(express.json())
-servidor.use(cors());
+servidor.use(cors())
 
 adicionarRotas(servidor)
 
