@@ -1,8 +1,10 @@
 import { criarCanalRepository, pegarCanaisRepository } from "../repository/canalRepository.js";
-import { validarBodyCanal } from "../validate/canalValidate.js";
+import { validarBodyCanal, validarCanalExistente } from "../validate/canalValidate.js";
 
 export async function criarCanalService(canal){
   validarBodyCanal(canal);
+
+  await validarCanalExistente(canal.nome);
 
   const idCanal = await criarCanalRepository(canal);
   return idCanal;

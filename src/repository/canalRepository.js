@@ -14,3 +14,11 @@ export async function pegarCanaisRepository(){
     const resposta = await db.query(comando)
     return resposta[0]
 }
+
+export async function pegarCanalPeloNomeRepository(nome){
+    const comando = `SELECT * FROM tb_canal
+                        WHERE nm_canal = ?`
+
+    const resposta = await db.query(comando, [nome])
+    return resposta[0]
+}
