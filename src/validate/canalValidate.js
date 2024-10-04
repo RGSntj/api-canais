@@ -14,3 +14,4 @@ export async function validarCanalExistente(nome){
   if (canal.length > 0) 
     throw new Error("Já existe um canal com esse nome !")
 }
+
