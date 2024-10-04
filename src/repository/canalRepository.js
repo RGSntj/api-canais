@@ -1,6 +1,6 @@
 import { db } from '../db/connection.js'
 
-export async function criarCanalRepository(canal){
+export async function criarCanalRepository(canal) {
     const comando = `INSERT INTO tb_canal (nm_canal, nr_canal, bt_aberto)
                                   VALUES (?, ?, ?)`;
 
@@ -8,14 +8,18 @@ export async function criarCanalRepository(canal){
     return resposta[0].insertId;
 }
 
-export async function pegarCanaisRepository(){
-    const comando = `SELECT * FROM tb_canal`
+export async function pegarCanaisRepository() {
+    const comando = `SELECT id_canal    id,
+                            nm_canal    nome,
+                            nr_canal    numero,
+                            bt_aberto   aberto 
+                    FROM tb_canal`
 
     const resposta = await db.query(comando)
     return resposta[0]
 }
 
-export async function pegarCanalPeloNomeRepository(nome){
+export async function pegarCanalPeloNomeRepository(nome) {
     const comando = `SELECT * FROM tb_canal
                         WHERE nm_canal = ?`
 

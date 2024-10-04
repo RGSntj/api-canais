@@ -7,7 +7,7 @@ endpoints.get("/canais", async (req, resp) => {
   try {
     const canais = await pegarCanaisService();
 
-    return resp.status(201).send(canais);
+    return resp.send(canais);
   } catch (error) {
     return resp.status(400).send({
       erro: error.message
