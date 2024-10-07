@@ -15,6 +15,16 @@ endpoints.get("/programas", async (req, resp) => {
   }
 })
 
+endpoints.put("/programa/:id", async (req, resp) => {
+  try {
+
+  } catch (error) {
+    return resp.status(400).send({
+      erro: error.message
+    })
+  }
+})
+
 endpoints.post("/programa/:idCanal", async (req, resp) => {
   try {
     const { idCanal } = req.params;
